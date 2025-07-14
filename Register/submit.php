@@ -6,7 +6,8 @@ if($conn->connect_error) {
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-$sql = "INSERT INTO user(Id,Name,Email,Password) VALUES (NULL,'$name', '$email', '$password')";
+$role = 'user'; // Default role for new users
+$sql = "INSERT INTO user(Id,Name,Email,Password,Role) VALUES (NULL,'$name', '$email', '$password', '$role')";
 if($conn->query($sql) === TRUE) {
     echo "Registration successful!";
 } else {

@@ -15,9 +15,6 @@
 
     if (move_uploaded_file($_FILES["book_cover"]["tmp_name"], $target_file)) {
         // Save file name to DB
-        $stmt = $conn->prepare("INSERT INTO book (Book_Cover) VALUES (?)");
-        $stmt->bind_param("s", $filename);
-        $stmt->execute();
         echo "✅ Image uploaded successfully.<br>";
         echo '<a href="display.php">View Uploaded Images</a>';
     } else {
@@ -30,4 +27,9 @@
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+    // Close the connection
+    $conn->close();
+
+
+    
 ?>
