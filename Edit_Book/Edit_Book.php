@@ -1,8 +1,13 @@
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
     <body>
+        <h1>Edit Book</h1>
         <div class="header">
             <form method="post" action="search.php">
                 <input type="text" name="search" placeholder="Search for books...">
@@ -17,11 +22,13 @@
 
 
             while ($row = $result->fetch_assoc()) {
-                echo "<div class ='book-item' onclick='location.href=\"book_details.php?id={$row['Book_Id']}\"'>";
+                echo "<div class ='book-item'>";
                 echo "<img src='../Book/{$row['Book_Cover']}' style='width:200px; margin:10px;'> ";
                 echo "<p>Title: ". $row["Book_Name"] ."</p>";
                 echo "<p>Author: ". $row["Author"] ."</p>";
                 echo "<p>Available: ". ($row["Book_Available"] ? "Yes" : "No") ."</p>";
+                echo "<button onclick='location.href=\"edit.php?id={$row['Book_Id']}\"'>Edit</button>";
+                echo "<button onclick='location.href=\"delete_book.php?id={$row['Book_Id']}\"'>Delete</button>";
                 echo "</div>";
             }
             $conn->close();

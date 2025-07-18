@@ -15,6 +15,8 @@
             echo "<p>Title: ". $row["Book_Name"] ."</p>";
             echo "<p>Author: ". $row["Author"] ."</p>";
             echo "<p>Available: ". ($row["Book_Available"] ? "Yes" : "No") ."</p>";
-            echo "</div>";
+            echo "</div></a>";
         }
     }
+    $conn->close();
+?>
