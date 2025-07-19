@@ -24,6 +24,8 @@
                 echo "<p>Title: ". $row["Book_Name"] ."</p>";
                 echo "<p>Author: ". $row["Author"] ."</p>";
                 echo "<p>Available: ". ($row["Book_Available"] ? "Yes" : "No") ."</p>";
+                echo "<button onclick='location.href=\"edit.php?id={$row['Book_Id']}\"'>Edit</button>";
+                echo "<button onclick='location.href=\"delete_book.php?id={$row['Book_Id']}\"'>Delete</button>";
                 echo "</div></a>";
             
             }

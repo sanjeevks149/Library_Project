@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Edit Book</h1>
-    <form method="post" action="update_book.php">
+    <form method="post" action="update_book.php" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
@@ -16,10 +16,10 @@
         <input type="text" id="author" name="author" required>
         <br>
         <label for="cover">Cover Image:</label>
-        <input type="file" id="cover" name="cover">
+        <input type="file" id="book_cover" name="book_cover">
         <br>
         <label for="available">Book Available:</label>
-        <input type="number" id="available" name="available" value="1">
+        <input type="number" id="book_available" name="book_available" value="1">
         <br>
         <input type="submit" value="Update Book">
     </form>
