@@ -20,6 +20,8 @@
             <img src="../Book/<?php echo $book['Book_Cover']; ?>" alt="<?php echo $book['Book_Name']; ?>">
             <p><strong>Author:</strong> <?php echo $book['Author']; ?></p>
             <p><strong>Available:</strong> <?php echo $book['Book_Available'] ? "Yes" : "No"; ?></p>
+            <button onclick="location.href='reserve.php?book_id=<?php echo $book['Book_Id']; ?>'">Reserve</button>
+            <button onclick="location.href='display.php'">Back to Search</button>
         </div>
     </body>
 </html>

@@ -12,9 +12,10 @@
         <div class="book-list">
             <?php
             $conn = new mysqli("localhost", "root", "", "library_db");
-
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
             $result = $conn->query("SELECT * FROM book WHERE Book_Cover IS NOT NULL");
-
 
             while ($row = $result->fetch_assoc()) {
                 echo "<div class ='book-item' onclick='location.href=\"book_details.php?id={$row['Book_Id']}\"'>";
