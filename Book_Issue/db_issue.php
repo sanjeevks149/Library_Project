@@ -11,7 +11,9 @@
     $status = "issued";
 
     $sql = "UPDATE transaction SET Status = '$status', Issue_Date = '$issue_date', Actual_Return_Date = '$actual_return_date' WHERE Student_Id = '$student_id' AND Book_Id = '$book_id' AND Status = 'reserved'";
-    
+    $sql1 = "UPDATE book SET Book_Available = Book_Available - 1 WHERE Book_Id = '$book_id'";
+    $conn->query($sql1);
+
     if ($conn->query($sql) === TRUE) {
         echo "Book issued successfully.";
         

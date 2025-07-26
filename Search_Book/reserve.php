@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header('location:../Login/login.php');
+    header('location:../Login/login.html');
     
     exit();
 }
@@ -13,8 +13,15 @@ if ($conn->connect_error) {
 }
 
 $sql = "insert into transaction (Student_Id, Book_Id, Status) values($user_id, $book_id, 'reserved')";
-if ($conn->query($sql) === TRUE) {
-    echo "Book reserved successfully.";
-} else {
-    echo "Error reserving book: " . $conn->error;
+$sql2 = "Select Student_Id, Book_Id, Status from transaction where Student_Id = $user_id and Book_Id = $book_id";
+if ($conn->query($sql2)->num_rows > 0) {
+    echo "You have already reserved this book.";
+    exit();
+}
+else{
+    if ($conn->query($sql) === TRUE) {
+        echo "Book reserved successfully.";
+    }else {
+        echo "Error reserving book: " . $conn->error;
+    }
 }

@@ -7,6 +7,7 @@
 
 
     $sql1 = "SELECT Book_Id,Book_Name FROM book WHERE Book_Id IN (SELECT Book_Id FROM transaction WHERE Student_Id = '$student_id' AND Status = 'reserved' AND Book_Available > 0)";
+
     $result1 = $conn->query($sql1);
     if ($result1->num_rows > 0) {?>
         <form action="db_issue.php" method="post">

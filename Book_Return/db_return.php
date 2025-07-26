@@ -10,6 +10,7 @@
     $status = "returned";
 
     $sql1 = "SELECT Actual_Return_Date FROM transaction WHERE Student_Id = '$student_id' AND Book_Id = '$book_id' AND Status = 'issued'";
+    $sql2 = "UPDATE book SET Book_Available = Book_Available + 1 WHERE Book_Id = '$book_id'";
     $actual_return_date = $conn->query($sql1);
     if ($actual_return_date->num_rows > 0) {
         $row = $actual_return_date->fetch_assoc();
@@ -17,7 +18,7 @@
         $interval = $actual_return_date->diff($return_date);
         $days = $interval->days;
         $fine = $days > 0 ? $days * 10 : 0;
-        if( $fine > 0) {
+        if( $actual_return_date <$return_date) {
             echo "⏳ $days days have <b>passed</b> since the actual return date. <br>";
             echo "📅 A fine of $fine has been applied for late return.";
         } else {
@@ -28,6 +29,7 @@
         $sql = "UPDATE transaction SET Status = '$status', Return_Date = '$return_date', Fine = '$fine' WHERE Student_Id = '$student_id' AND Book_Id = '$book_id' AND Status = 'issued'";
         if ($conn->query($sql) === TRUE) {
             echo "<br>Book returned successfully.";
+            $conn->query($sql2);
         } else {
             echo "Error returning book: " . $conn->error;
         }
