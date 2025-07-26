@@ -14,6 +14,7 @@
     
     if ($conn->query($sql) === TRUE) {
         echo "Book issued successfully.";
+        
     } else {
         echo "Error issuing book: " . $conn->error;
     }
