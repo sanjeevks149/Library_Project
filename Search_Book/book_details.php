@@ -12,12 +12,12 @@
 
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="display.css">
     </head>
     <body>
-        <div class="book-details">
+        <div class="book-item">
             <h1><?php echo $book['Book_Name']; ?></h1>
-            <img src="../Book/<?php echo $book['Book_Cover']; ?>" alt="<?php echo $book['Book_Name']; ?>">
+            <img src="../Book/<?php echo $book['Book_Cover']; ?>" alt="<?php echo $book['Book_Name']; ?> ">
             <p><strong>Author:</strong> <?php echo $book['Author']; ?></p>
             <p><strong>Available:</strong> <?php echo $book['Book_Available'] ? "Yes" : "No"; ?></p>
             <button onclick="location.href='reserve.php?book_id=<?php echo $book['Book_Id']; ?>'">Reserve</button>

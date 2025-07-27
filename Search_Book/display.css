@@ -1,0 +1,122 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.3s ease all;
+}
+
+/* BODY */
+body {
+    background-color: #0b1622;
+    color: #d0e6f7;
+    padding: 2rem;
+}
+
+/* HEADER BAR */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #132030;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 89, 255, 0.2);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+/* SEARCH FORM */
+.header form {
+    display: flex;
+    gap: 0.8rem;
+    flex: 1;
+    max-width: 600px;
+}
+
+.header input[type="text"] {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    background-color: #0d1b2b;
+    border: 1px solid #274060;
+    border-radius: 8px;
+    color: #f2faff;
+    font-size: 1rem;
+}
+
+.header input[type="submit"],
+.header button {
+    padding: 0.6rem 1.2rem;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header input[type="submit"]:hover,
+.header button:hover {
+    background-color: #2563eb;
+}
+
+/* BOOK GRID LAYOUT */
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+/* INDIVIDUAL BOOK CARD */
+.book-item {
+    background-color: #16273d;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.book-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+}
+
+.book-item img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* BOOK INFO TEXT */
+.book-item p {
+    font-size: 0.95rem;
+    color: #cbdaf5;
+    margin: 0.4rem 0;
+}
+
+.book-item p:first-of-type {
+    font-weight: 600;
+    color: #e2ecff;
+}
+
+/* MEDIA QUERY FOR SMALL SCREENS */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .book-list {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .book-item p {
+        font-size: 0.85rem;
+    }
+}

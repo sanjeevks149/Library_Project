@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style1.css">
     </head>
     <body>
         <div class="header">
@@ -20,7 +20,7 @@
 
             while ($row = $result->fetch_assoc()) {
                 echo "<div class ='book-item' onclick='location.href=\"book_details.php?id={$row['Book_Id']}\"'>";
-                echo "<img src='../Book/{$row['Book_Cover']}' style='width:200px; margin:10px;'> ";
+                echo "<img src='../Book/{$row['Book_Cover']}' alt='Book Cover'> ";
                 echo "<p>Title: ". $row["Book_Name"] ."</p>";
                 echo "<p>Author: ". $row["Author"] ."</p>";
                 echo "<p>Available: ". ($row["Book_Available"] ? "Yes" : "No") ."</p>";
