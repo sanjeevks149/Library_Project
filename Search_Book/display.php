@@ -8,6 +8,7 @@
                 <input type="text" name="search" placeholder="Search for books...">
                 <input type="submit" value="Search">
             </form>
+            <button onclick="location.href='../View_Issued_Books/issued_books.php'">My Books</button>
         </div>
         <div class="book-list">
             <?php

@@ -13,9 +13,12 @@ $sql = "SELECT * FROM user WHERE Email='$email' AND Password='$password' OR Name
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    if($row['Email'] == $email && $row['Password'] == $password || $row['Name'] == $username && $row['Password'] == $password) {
+    if($row['Email'] == $email && $row['Password'] == $password && $row['Role'] == 'user') {
         $_SESSION['user_id'] = $row['Id'];
         header('location:../search_book/display.php');
+    } else if ($row['Name'] == $username && $row['Password'] == $password && $row['Role'] == 'admin') {
+        $_SESSION['user_id'] = $row['Id'];
+        header('location:../Admin_Dashbord/admin_Dashbord.html');
     } else {
         echo "Invalid email or password.";
     }
