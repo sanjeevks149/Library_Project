@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style2.css">
 <?php 
     $conn = new mysqli("localhost", "root", "", "library_db");
     if ($conn->connect_error) {
