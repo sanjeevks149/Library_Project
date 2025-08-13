@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Issued Books</title>
+        
         <link rel="stylesheet" href="style.css">
         <script>
             function sort() {
@@ -17,6 +18,8 @@
     <body>
         <div class="header">
             <h1>My Issued Books</h1>
+            <h3>SID:<?php session_start();
+        echo $_SESSION['user_id']; ?></h3>
         <select name="filter"  onchange="sort()">
             <option value="all">All Books</option>
             <option value="reserved">Reserved Books</option>
