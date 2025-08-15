@@ -9,9 +9,12 @@ $password = $_POST['password'];
 $role = 'user'; // Default role for new users
 $sql = "INSERT INTO user(Id,Name,Email,Password,Role) VALUES (NULL,'$name', '$email', '$password', '$role')";
 if($conn->query($sql) === TRUE) {
-    echo "Registration successful!";
+    echo "<script>alert('Registration successful!');</script>";
+    echo "<script>window.location.href='../Login/login.html';</script>";
+    exit();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+    echo "<script>window.location.href='register.html';</script>";
 }
 $conn->close();
 ?>

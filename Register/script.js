@@ -28,5 +28,6 @@ function formValidation() {
         return false;
     }
     alert("Form submitted successfully!");
+    
     return true;
 }

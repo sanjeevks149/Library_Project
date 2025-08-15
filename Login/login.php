@@ -20,9 +20,13 @@ if ($result->num_rows > 0) {
         $_SESSION['user_id'] = $row['Id'];
         header('location:../Admin_Dashbord/admin_Dashbord.html');
     } else {
-        echo "Invalid email or password.";
+        echo "<script>alert('Invalid email or password.');</script>";
+        echo "<script>window.location.href='login.html';</script>";
+        exit(); 
     }
 } else {
-    echo "Invalid email or password.";
+    echo "<script>alert('Invalid email or password.');</script>";
+    echo "<script>window.location.href='login.html';</script>";
+    exit();
 }   
 ?>
